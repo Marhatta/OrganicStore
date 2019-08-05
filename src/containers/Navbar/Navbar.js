@@ -4,16 +4,16 @@ import React , {Fragment} from 'react';
 const Navbar = () => {
     return(
         <Fragment>
-        <nav class="navbar navbar-expand-sm bg-light">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link 1</a>
+        <nav className="navbar navbar-expand-sm bg-dark">
+            <ul className="navbar-nav">
+                <li className="nav-item">
+                    <a className="nav-link" href="#">Link 1</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link 2</a>
+                <li className="nav-item">
+                    <a className="nav-link" href="#">Link 2</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link 3</a>
+                <li className="nav-item">
+                    <a className="nav-link" href="#">Link 3</a>
                 </li>
             </ul>
 

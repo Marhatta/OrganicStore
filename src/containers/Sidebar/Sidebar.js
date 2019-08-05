@@ -1,25 +1,16 @@
-import React,{Component,Fragment} from 'react';
+import React,{Fragment} from 'react';
 
 
-class Sidebar extends Component{
-
-    state = {
-        productCategories = []
-    }
-
-    render(){
-
-        this.state.productCategories.map(category => {
-            <li>{category}</li>
-        })
-
+const Sidebar = props =>{
         return(
             <Fragment>
-
+                <div>
+                <h3 className='text-primary'>Categories</h3>
+                {props.categories}
+                </div>
+                
             </Fragment>
         )
     }
     
-}
-
 export default Sidebar;

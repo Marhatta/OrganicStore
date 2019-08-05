@@ -1,2 +1,1 @@
-export {getProducts} from './GetProducts';
-export {getCategories} from './GetCategories';
+export {getProductData} from './Products';

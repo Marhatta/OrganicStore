@@ -4,18 +4,17 @@ import {createStore,combineReducers,applyMiddleware,compose} from 'redux';
 import {Provider} from 'react-redux';
 import thunk from 'redux-thunk';
 
-import {getCategories,getProducts} from './store/reducers';
 
 import './index.css';
 import App from './App';
+import {getProductData} from './store/reducers';
 
 
 
 //combine all the reducers here
 //if key is added , make sure you are using that key to access the state via props
 const rootReducer = combineReducers({
-    categories:getCategories,
-    products:getProducts
+    productData:getProductData
 });
 
 //create a store
