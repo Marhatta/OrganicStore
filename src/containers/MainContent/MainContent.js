@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import {connect} from 'react-redux';
 
 import {fetchProductData} from '../../store/actions';
-import Sidebar from '../Sidebar/Sidebar';
+import Categories from '../Categories/Categories';
 import Products from '../Products/Products';
 
 import Category from '../../components/Category/Category';
@@ -18,18 +18,29 @@ class MainContent extends Component {
    
     render(){
 
+        //initally display all products
         let products = this.props.data.productData;
+
+        //filter products on basis of category
+        const filterCategory = (category) => {
+            return products.map(product => product.category === category);
+        }
        
         //categories passed as props to <Sidebar />
         const categories = this.props.data.productData.map(product=>{
-                            return <Category product={product}/>
+            
+                            return <Category 
+                                    product={product} 
+                                    category={product.category} 
+                                    filterCategory={()=>filterCategory(product.category)}
+                                    />
                         });
 
 
         return(
                 <div className='row container-fluid'>
-                    <Sidebar categories={categories} className='col-md-6'/>
-                    <Products products = {products} className='col-md-6'/>
+                    <Categories categories={categories}  />
+                    <Products products = {products} />
                 </div>
         );
     }

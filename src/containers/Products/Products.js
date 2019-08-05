@@ -1,17 +1,19 @@
-import React,{Fragment} from 'react';
+import React from 'react';
 import Product from '../../components/Product/Product';
+import styles from './Products.module.css';
 
 const Products = props => {
     return(
-        <Fragment>
+        <div className={styles.products}>
             {props.products.map(product=>{
                 return <Product
-                        image={product.imageURL} 
+                        image={product.imageUrl} 
                         title={product.title}
-                        price={product.price}    
+                        price={product.price}
+                        category={product.category}    
                         />
             })}
-        </Fragment>
+        </div>
     )
 }
 
