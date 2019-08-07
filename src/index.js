@@ -7,14 +7,15 @@ import thunk from 'redux-thunk';
 
 import './index.css';
 import App from './App';
-import {getProductData} from './store/reducers';
+import {getProductData,addToCart} from './store/reducers';
 
 
 
 //combine all the reducers here
 //if key is added , make sure you are using that key to access the state via props
 const rootReducer = combineReducers({
-    productData:getProductData
+    productData:getProductData,
+    cart:addToCart
 });
 
 //create a store

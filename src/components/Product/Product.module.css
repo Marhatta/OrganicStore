@@ -17,7 +17,7 @@
     -moz-box-shadow: 2px 3px 0px #f2f2f2;
     -webkit-box-shadow: 2px 3px 0px #f2f2f2;
     box-shadow: 2px 3px 0px #f2f2f2;
-    transform:scale(1.2);
+    transform:scale(1.1);
     transition: .1s all;
     z-index:999
 }

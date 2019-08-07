@@ -7,6 +7,9 @@ const Products = props => {
         <div className={styles.products}>
             {props.products.map(product=>{
                 return <Product
+                        user={props.user}
+                        key={product.id}
+                        id={product.id}
                         image={product.imageUrl} 
                         title={product.title}
                         price={product.price}
