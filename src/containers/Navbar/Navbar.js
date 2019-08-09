@@ -16,9 +16,7 @@ class Navbar extends Component  {
                             <span className='badge badge-danger'>{this.props.counter}</span>
                         </Link>
                     </li>
-                    <li className="nav-item">
-                        <Link to='/addProduct' className="nav-link text-light" > <span className='fa fa-plus'></span>Add New Product</Link>
-                    </li>
+          
                 </ul>
                
              </nav>

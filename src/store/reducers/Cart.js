@@ -26,18 +26,17 @@ export const addToCart = (state=initialState,action) => {
                 state.counter = state.counter + 1;
                 return {...state};
             
-                case DELETE_FROM_CART :
+            case DELETE_FROM_CART :
                 let cartItems = [...state.cart.cartItems];
                 cartItems = cartItems.filter(item=>item.title !== action.productData.title);
-                state.cart.cartItems=cartItems;
                 //Reduce the quantity value
                 if(state.cart.cartItems.length>0){
                     state.counter -= 1;
                 }
-               
-                
+                state.cart.cartItems=cartItems;
+                 
                 return {...state};
 
     }
-    return state;
+    return {...state};
 }

@@ -1,4 +1,4 @@
-import React,{Component} from 'react';
+import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
@@ -6,16 +6,14 @@ import {addToCart,deleteProduct} from '../../store/actions';
 import styles from './Product.module.css';
 
 
-class Product extends Component{
+const Product = props => {
 
-    
-    render(){
         //Items to be added in cart
         const cartItems = {
-            title : this.props.title,
-            image : this.props.image,
-            category :this.props.category,
-            price :this.props.price
+            title : props.title,
+            image : props.image,
+            category :props.category,
+            price :props.price
         }
         
         return(
@@ -27,17 +25,17 @@ class Product extends Component{
                 <h5>Category:{cartItems.category}</h5>
                 <h6>Price:Rs. {cartItems.price}</h6>
                 
-                {!this.props.user ? 
+                {!props.user ? 
                     <div>
                    
                     <Link to={{
                     pathname:'/edit',
                     aboutProps:{
-                        id:this.props.id,
-                        title:this.props.title,
-                        price:this.props.price,
-                        category:this.props.category,
-                        image:this.props.image
+                        id:props.id,
+                        title:props.title,
+                        price:props.price,
+                        category:props.category,
+                        image:props.image
                         }
                     }} 
                     className='btn btn-primary fa fa-edit mr-3'
@@ -45,21 +43,22 @@ class Product extends Component{
                      Edit
                     </Link>
 
-                 <button onClick={()=>this.props.deleteProduct(this.props.id)} className='fa fa-trash  btn btn-danger'> Delete</button> 
+                 <button onClick={()=>props.deleteProduct(props.id)} className='fa fa-trash  btn btn-danger'> Delete</button> 
                 </div> : 
 
-                <button className='btn btn-primary mr-3' onClick={()=>this.props.addToCart(cartItems)}>Add to Cart</button>  
+                <button className='btn btn-primary mr-3' onClick={()=>props.addToCart(cartItems)}>Add to Cart</button>  
                 }
                 
             </div>
         )
     }
   
-}
+
 
 const mapStateToProps = state => {
     return {
-        counter:state.cart.cartCounter, //here cart is the key of the reducer mentioned in index.js
+        counter:state.cart.cartCounter, 
+        //here cart is the key of the reducer mentioned in index.js
         cartItems:state.cart.cartItems,
     }
 } 

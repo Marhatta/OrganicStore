@@ -37,7 +37,7 @@ class Form extends Component{
             case 'category' : errors.productCategory = value === '' ? 'Required' : ''
                        
                 break;
-            case 'price' :errors.productPrice = (value === '' ||  isNaN(value))  ? 'Number is expected' : ''
+            case 'price' :errors.productPrice = (value === '' ||  (isNaN(value)))  ? 'Number is expected' : ''
                 break;
             case 'url' : errors.productUrl = value === '' ? 'Required' : ''
                 break;

@@ -82,16 +82,28 @@ class EditProduct extends Component {
    } 
 
 
+   componentDidMount = () => {
+    //To get the values in the editProduct form
+    this.setState({
+        name:this.props.location.aboutProps.title,
+        category:this.props.location.aboutProps.category,
+        price:this.props.location.aboutProps.price,
+        url:this.props.location.aboutProps.image
+    })
+   }
+
     render(){
+        
+       
         return(
             <div className={styles.edit}>
-                <Text type='text' placeholder='Product Name' name='name' changed={(event)=>this.handleTextChange(event)} />
+                <Text type='text' placeholder='Product Name' name='name' changed={(event)=>this.handleTextChange(event)} value={this.state.name}/>
                 <p>{this.state.errors.productName}</p>
-                <Text type='text' placeholder='Product Category' name='category'  changed={(event)=>this.handleTextChange(event)}/>
+                <Text type='text' placeholder='Product Category' name='category'  changed={(event)=>this.handleTextChange(event)} value={this.state.category} />
                 <p>{this.state.errors.productType}</p>
-                <Text type='text' placeholder='Price' name='price' changed={(event)=>this.handleTextChange(event)}/> 
+                <Text type='text' placeholder='Price' name='price' changed={(event)=>this.handleTextChange(event)} value={this.state.price}/> 
                 <p>{this.state.errors.productPrice}</p>
-                <Text type='text' placeholder='Image Url' name='url' changed={(event)=>this.handleTextChange(event)}/> 
+                <Text type='text' placeholder='Image Url' name='url' changed={(event)=>this.handleTextChange(event)} value={this.state.url}/> 
                 <p>{this.state.errors.url}</p>
                 <SubmitButton type='submit' clicked={(event) => this.onSubmitHandler(event)}>Save</SubmitButton>
             </div>        

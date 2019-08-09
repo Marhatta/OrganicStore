@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
-
+import {Link} from 'react-router-dom';
 
 import {fetchProductData} from '../../store/actions';
 import Products from '../Products/Products';
@@ -19,7 +19,6 @@ class MainContent extends Component {
     //dispatch action as soon as component mounts
     componentDidMount=()=>{
         this.props.fetchProductData();
-        
     }
 
     render(){
@@ -57,11 +56,17 @@ class MainContent extends Component {
 
         return(
              <div className='container-fluid'>
-                    <Category name={categories[0]} click={()=>filterCategory(categories[0])}/>
+                    <Category name={categories[0]} click={()=>filterCategory(categories[0])} />
                     <Category name={categories[1]} click={()=>filterCategory(categories[1])}/>
                     <Category name = {categories[2]} click={()=>filterCategory(categories[2])} />
+                    
                     <Search changed={(event)=>onchangeSearchFieldHandler(event)} />
                     <button onClick={()=>userChange()} class='btn btn-danger'>Switch to {this.state.user ? 'Admin' : 'User'}</button>
+                    
+                    {this.state.user ? null :
+                        <Link to='/addProduct' className="btn btn-danger m-1" > <span className='fa fa-plus'></span>Add New Product</Link>
+                    }
+                    
                     <Products products = {this.state.prod} user={this.state.user} /> 
             </div>
         );
